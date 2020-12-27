@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\City;
+use App\Models\City;
 
 class CityController extends Controller
 {
