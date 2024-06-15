@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateStatesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,7 +14,7 @@ class CreateStatesTable extends Migration
     public function up()
     {
         Schema::create('states', function (Blueprint $table) {
-            $table->bigIncrements('id');
+            $table->id();
             $table->char('code', 2)->nullable();
             $table->string('name')->nullable();
             $table->timestamps();
@@ -30,4 +30,4 @@ class CreateStatesTable extends Migration
     {
         Schema::dropIfExists('states');
     }
-}
+};

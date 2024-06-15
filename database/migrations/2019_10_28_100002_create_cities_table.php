@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCitiesTable extends Migration
+return new class extends Migration
 {
     /**
      * Run the migrations.
@@ -14,9 +14,8 @@ class CreateCitiesTable extends Migration
     public function up()
     {
         Schema::create('cities', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->bigInteger('state_id')->nullable()->unsigned();
-			$table->foreign('state_id')->references('id')->on('states');
+            $table->id();
+			$table->foreignId('state_id')->nullable()->unsigned()->constrained();
             $table->string('name')->nullable();
             $table->string('county')->nullable();
             $table->double('latitude')->nullable();
@@ -34,4 +33,4 @@ class CreateCitiesTable extends Migration
     {
         Schema::dropIfExists('cities');
     }
-}
+};
